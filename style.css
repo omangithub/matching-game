@@ -1,0 +1,10 @@
+.playingCards {
+    margin: 10px;
+}
+div {
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    flex-wrap: wrap;
+    display: flex;
+}
