@@ -31,7 +31,7 @@ function cardCreator () {
     divBorder.style.height="140px";
     divBorder.style.background="white";
     divBorder.id="card" + "Border" + i;
-    divBorder.classList.add("cardBlackBorder")
+    divBorder.classList.add("cardBlackBorder");
     let div = document.createElement("div");
     div.style.width="118px";
     div.style.height="134px";
@@ -83,21 +83,23 @@ function chooseCard () {
     cardBack.style.border="0px";
     cardBack.style.background = "white";
     setTimeout(()=>{
-      document.getElementById(mouseOverCardId).style.width="120px";
-      document.getElementById(innerCard).style.width="118px";
-    },300); 
     // Places and image on the card
-//    let elem = document.createElement("img")
-//    elem.src = 'https://esl-classroom-games.com/wp-content/uploads/brizy/imgs/cat-hat-408x400x0x0x408x400x1672799785.jpg';
-//    elem.style.height = '50px';
-//    elem.style.width = '50px';
+    let elem = document.createElement("img")
+    elem.src = 'https://esl-classroom-games.com/wp-content/uploads/brizy/imgs/cat-hat-408x400x0x0x408x400x1672799785.jpg';
+    elem.classList.add("cardPicture");
+    elem.style.width="100%";
+    elem.style.height="100px";
+    document.getElementById(innerCard).appendChild(elem);    
+    document.getElementById(mouseOverCardId).style.width="120px";
+    document.getElementById(innerCard).style.width="118px";
+    },300); 
 } ;
 
 
 
 //    document.getElementById(innerCard).style.width="118px";
 //    document.getElementById(mouseOverCardId).style.width="120px";   
-//    document.getElementById(innerCard).appendChild(elem); }
+
 
 // then I will need to match the ids to pictures
 
