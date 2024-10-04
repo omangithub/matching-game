@@ -34,8 +34,8 @@
     margin:0px;
     border:2px solid black;
     border-radius: 5%;
-    transition:50ms linear;
-    transition: opacity 3s;
+    transition:100ms linear;
+
 }
 
 #gameBox {
@@ -48,4 +48,8 @@
     flex-direction: row;
     justify-content: center;
     background-color: rgb(150, 150, 150);
+}
+
+.cardPicture {
+    opacity: 1;
 }
