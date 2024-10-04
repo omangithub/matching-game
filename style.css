@@ -10,9 +10,9 @@
 }
 
 #numberOnTop {
-    border: 2px solid black;
-    border-radius: 5%;
-    text-align: center;
+    font-size: 80px;
+    margin:0px;
+    border: 0px;
 }
 
 .playingCards {
@@ -24,7 +24,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    flex-wrap: wrap;
     transition:50ms linear;
 }
 
@@ -36,6 +35,7 @@
     border:2px solid black;
     border-radius: 5%;
     transition:50ms linear;
+    transition: opacity 3s;
 }
 
 #gameBox {

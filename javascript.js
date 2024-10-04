@@ -23,6 +23,8 @@ gridCreator();
 let numberOfCards=12;
 let mouseOverCardId="";
 let innerCard="";
+let playerTurn=1;
+let playerFirstChoice=50;
 
 function cardCreator () { 
   for (let i=0; i<numberOfCards; i++) {
@@ -42,7 +44,6 @@ function cardCreator () {
       mouseOverCardId=divBorder.id;
       innerCard=div.id;
       chooseCard();
-      console.log(MouseOverCardId);
     })
     div.classList.add("playingCards")
     // randomly pins a card to a grid space
@@ -51,15 +52,17 @@ function cardCreator () {
     let newGridSpace = "gridSpace" + randomNumber;
     let lengthOfNode = document.getElementById(newGridSpace).childNodes.length;
     if (lengthOfNode<=0) {
+      // Number on the card    
+/*    let textDiv = document.createElement("div");
+    textDiv.style.width="100%";
+    textDiv.style.height="30px";
+    textDiv.id="numberOnTop";
+    textDiv.innerText=randomNumber;*/
     document.getElementById(newGridSpace).appendChild(divBorder);
     document.getElementById("card"+ "Border"+i).appendChild(div);
+// text    document.getElementById("card" + i).appendChild(textDiv);
 // Places a number at the top of the card
-/*    let textDiv = document.createElement("div");
-    textDiv.style.width="50px";
-    textDiv.style.height="20px";
-    textDiv.id="numberOnTop";
-    textDiv.innerText=randomNumber +1;
-    document.getElementById("card" + i).appendChild(textDiv); */
+
 /* Places and image on the card
     let elem = document.createElement("img")
     elem.src = 'https://esl-classroom-games.com/wp-content/uploads/brizy/imgs/cat-hat-408x400x0x0x408x400x1672799785.jpg';
@@ -74,14 +77,26 @@ cardCreator();
 
 // then I will need to make the cards turn over when they have been clicked
 
+
+
 function chooseCard () {
-  console.log("I'm here");
     let myCard = document.getElementById(mouseOverCardId);
     document.getElementById(mouseOverCardId).style.width="0px";
     let cardBack = document.getElementById(innerCard);
     document.getElementById(innerCard).style.width="0px";
     cardBack.style.border="0px";
     cardBack.style.background = "white";
+    console.log(mouseOverCardId);
+    if (playerTurn===1) {
+      turnFirstCard();
+    } else if (playerTurn===2) {
+      turnSecondCard();
+    }
+} ;
+
+function turnFirstCard () {
+  console.log("I'm here");
+  if (mouseOverCardId==="card" + "Border" + 0 ) {
     setTimeout(()=>{
     // Places and image on the card
     let elem = document.createElement("img")
@@ -92,10 +107,61 @@ function chooseCard () {
     document.getElementById(innerCard).appendChild(elem);    
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard).style.width="118px";
+    },300);
+    playerTurn=2;
+    playerFirstChoice=1;
+    } else if (mouseOverCardId==="card" + "Border" + 1) {
+      setTimeout(()=>{
+        // Places and image on the card
+        let elem = document.createElement("img")
+        elem.src = 'https://esl-classroom-games.com/wp-content/uploads/brizy/imgs/cat-hat-408x400x0x0x408x400x1672799785.jpg';
+        elem.classList.add("cardPicture");
+        elem.style.width="100%";
+        elem.style.height="100px";
+        document.getElementById(innerCard).appendChild(elem);    
+        document.getElementById(mouseOverCardId).style.width="120px";
+        document.getElementById(innerCard).style.width="118px";
+        },300); 
+        playerTurn=2;
+        playerFirstChoice=0;
+}}
+
+function turnSecondCard () {
+  console.log("second turn");
+  if (mouseOverCardId==="card"+ "Border" + 1 && playerFirstChoice===1) {
+    setTimeout(()=>{
+    // Places and image on the card
+    let elem = document.createElement("img")
+    elem.src = 'https://esl-classroom-games.com/wp-content/uploads/brizy/imgs/cat-hat-408x400x0x0x408x400x1672799785.jpg';
+    elem.classList.add("cardPicture");
+    elem.style.width="100%";
+    elem.style.height="100px";
+    document.getElementById(innerCard).appendChild(elem);    
+    document.getElementById(mouseOverCardId).style.width="120px";
+    document.getElementById(innerCard).style.width="118px";
+    },300);
+    playerTurn=1;
+    setTimeout(()=>{
+      document.getElementById(mouseOverCardId).style.opacity="0";
+      document.getElementById("cardBorder0").style.opacity="0";
+    },200);
+  } else if(mouseOverCardId==="card"+ "Border" + 0 && playerFirstChoice===0){
+    setTimeout(()=>{
+    let elem = document.createElement("img")
+    elem.src = 'https://esl-classroom-games.com/wp-content/uploads/brizy/imgs/cat-hat-408x400x0x0x408x400x1672799785.jpg';
+    elem.classList.add("cardPicture");
+    elem.style.width="100%";
+    elem.style.height="100px";
+    document.getElementById(innerCard).appendChild(elem);    
+    document.getElementById(mouseOverCardId).style.width="120px";
+    document.getElementById(innerCard).style.width="118px";
     },300); 
-} ;
-
-
+    playerTurn=1;
+    setTimeout(()=>{
+      document.getElementById("cardBorder1").style.opacity="0";
+      document.getElementById("cardBorder0").style.opacity="0";
+  },200);     
+  }}
 
 //    document.getElementById(innerCard).style.width="118px";
 //    document.getElementById(mouseOverCardId).style.width="120px";   
