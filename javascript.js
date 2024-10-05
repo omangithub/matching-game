@@ -354,14 +354,20 @@ playerFirstChoice=50;
 playerSecondChoice=50;
   } else {
     setTimeout(()=>{
-      playerFirstChoiceId = "cardBorder" + playerFirstChoice;
-      console.log("we reached else")
-      console.log(mouseOverCardId);
-      console.log(playerFirstChoiceId)
-    document.getElementById(mouseOverCardId).style.width="0px";
-    document.getElementById(playerFirstChoiceId).style.width="0px";
-    flipBackCards();
-  },300); 
+      document.getElementById(picId2).style.width="100%";  
+      document.getElementById(mouseOverCardId).style.width="120px";
+      document.getElementById(innerCard2).style.width="118px";
+      },400); 
+  turnBack();
+}
+
+function turnBack () {
+  setTimeout(()=>{
+    playerFirstChoiceId = "cardBorder" + playerFirstChoice;
+  document.getElementById(mouseOverCardId).style.width="0px";
+  document.getElementById(playerFirstChoiceId).style.width="0px";
+  flipBackCards();
+},1000); 
 }
 
 function flipBackCards() {

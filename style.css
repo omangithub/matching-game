@@ -9,6 +9,13 @@
     background-color: rgb(150, 150, 150);
 }
 
+#game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
 #numberOnTop {
     font-size: 80px;
     margin:0px;
@@ -52,4 +59,12 @@
 
 .cardPicture {
     opacity: 1;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
 }
