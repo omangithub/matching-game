@@ -29,6 +29,12 @@ let playerFirstChoice=50;
 let playerSecondChoice=50;
 let picId1="";
 let picId2="";
+const playerOneScore = 0;
+const playerTwoScore = 0;
+const turnUpdate = 1;
+const playerOneScoreText = document.getElementById("playerOneScore");
+const playerTwoScoreText = document.getElementById("playerTwoScore");
+const turnCounter = document.getElementById("turnText");
 
 function cardCreator () { 
   for (let i=0; i<numberOfCards; i++) {
@@ -51,12 +57,12 @@ function cardCreator () {
     elem.style.height="130px";
     elem.id="pic"+i;
     div.addEventListener("click", ()=>{
-      if (playerTurn===1) {
+      if (playerTurn===1 || playerTurn===3) {
       mouseOverCardId=divBorder.id;
       innerCard1=div.id;
       picId1=elem.id;
       chooseCard();}
-      else if (playerTurn===2){
+      else if (playerTurn===2 || playerTurn===4){
         mouseOverCardId=divBorder.id;
         innerCard2=div.id;
         picId2=elem.id;
@@ -114,11 +120,21 @@ function chooseCard () {
       document.getElementById(innerCard2).style.background = "white";
       turnSecondCard();
       playerSecondChoice=document.getElementById(mouseOverCardId);
+    } else if (playerTurn===3) {
+      document.getElementById(innerCard1).style.width="0px";
+      document.getElementById(innerCard1).style.background = "white";
+      document.getElementById(innerCard1).style.border="0px";
+      turnFirstCard();    
+    } else {
+      document.getElementById(innerCard2).style.width="0px";
+      document.getElementById(innerCard2).style.border="0px";
+      document.getElementById(innerCard2).style.background = "white";
+      turnSecondCard();
+      playerSecondChoice=document.getElementById(mouseOverCardId);     
     }
 } ;
 
 function turnFirstCard () {
-  console.log("I'm here");
   if (mouseOverCardId==="card" + "Border" + 0 ) {
     setTimeout(()=>{
     // Places and image on the card
@@ -126,7 +142,7 @@ function turnFirstCard () {
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard1).style.width="118px";
     },300);
-    playerTurn=2;
+    switchTurns();
     playerFirstChoice=0;
     } else if (mouseOverCardId==="card" + "Border" + 1) {
       setTimeout(()=>{
@@ -135,7 +151,7 @@ function turnFirstCard () {
         document.getElementById(mouseOverCardId).style.width="120px";
         document.getElementById(innerCard1).style.width="118px";
         },300); 
-        playerTurn=2;
+        switchTurns();
         playerFirstChoice=1;
       } else if (mouseOverCardId==="card" + "Border" + 2){
         setTimeout(()=>{
@@ -145,7 +161,7 @@ function turnFirstCard () {
           document.getElementById(mouseOverCardId).style.width="120px";
           document.getElementById(innerCard1).style.width="118px";
           },300); 
-          playerTurn=2;
+          switchTurns();
           playerFirstChoice=2;        
       } else if (mouseOverCardId==="card" + "Border" + 3){
         setTimeout(()=>{
@@ -155,7 +171,7 @@ function turnFirstCard () {
           document.getElementById(mouseOverCardId).style.width="120px";
           document.getElementById(innerCard1).style.width="118px";
           },300); 
-          playerTurn=2;
+          switchTurns();
           playerFirstChoice=3;
       } else if (mouseOverCardId==="card" + "Border" + 4){
             setTimeout(()=>{
@@ -165,7 +181,7 @@ function turnFirstCard () {
               document.getElementById(mouseOverCardId).style.width="120px";
               document.getElementById(innerCard1).style.width="118px";
               },300); 
-              playerTurn=2;
+              switchTurns();
               playerFirstChoice=4;
       } else if (mouseOverCardId==="card" + "Border" + 4){
               setTimeout(()=>{
@@ -175,7 +191,7 @@ function turnFirstCard () {
                 document.getElementById(mouseOverCardId).style.width="120px";
                 document.getElementById(innerCard1).style.width="118px";
                 },300); 
-                playerTurn=2;
+                switchTurns();
                 playerFirstChoice=5;
       } else if (mouseOverCardId==="card" + "Border" + 5){
               setTimeout(()=>{
@@ -185,7 +201,7 @@ function turnFirstCard () {
                 document.getElementById(mouseOverCardId).style.width="120px";
                 document.getElementById(innerCard1).style.width="118px";
                 },300); 
-                playerTurn=2;
+                switchTurns();
                 playerFirstChoice=5;
       } else if (mouseOverCardId==="card" + "Border" + 6){
                 setTimeout(()=>{
@@ -195,7 +211,7 @@ function turnFirstCard () {
                   document.getElementById(mouseOverCardId).style.width="120px";
                   document.getElementById(innerCard1).style.width="118px";
                   },300); 
-                  playerTurn=2;
+                  switchTurns();
                   playerFirstChoice=6;
       } else if (mouseOverCardId==="card" + "Border" + 7){
                   setTimeout(()=>{
@@ -205,7 +221,7 @@ function turnFirstCard () {
                     document.getElementById(mouseOverCardId).style.width="120px";
                     document.getElementById(innerCard1).style.width="118px";
                     },300); 
-                    playerTurn=2;
+                    switchTurns();
                     playerFirstChoice=7;
         } else if (mouseOverCardId==="card" + "Border" + 8){
                     setTimeout(()=>{
@@ -215,7 +231,7 @@ function turnFirstCard () {
                       document.getElementById(mouseOverCardId).style.width="120px";
                       document.getElementById(innerCard1).style.width="118px";
                       },300); 
-                      playerTurn=2;
+                      switchTurns();
                       playerFirstChoice=8;
           } else if (mouseOverCardId==="card" + "Border" + 9){
                       setTimeout(()=>{
@@ -225,7 +241,7 @@ function turnFirstCard () {
                         document.getElementById(mouseOverCardId).style.width="120px";
                         document.getElementById(innerCard1).style.width="118px";
                         },300); 
-                        playerTurn=2;
+                        switchTurns();
                         playerFirstChoice=9;
           } else if (mouseOverCardId==="card" + "Border" + 10){
                         setTimeout(()=>{
@@ -235,7 +251,7 @@ function turnFirstCard () {
                           document.getElementById(mouseOverCardId).style.width="120px";
                           document.getElementById(innerCard1).style.width="118px";
                           },300); 
-                          playerTurn=2;
+                          switchTurns();
                           playerFirstChoice=10;
           } else if (mouseOverCardId==="card" + "Border" + 11){
                           setTimeout(()=>{
@@ -245,7 +261,7 @@ function turnFirstCard () {
                             document.getElementById(mouseOverCardId).style.width="120px";
                             document.getElementById(innerCard1).style.width="118px";
                             },300); 
-                            playerTurn=2;
+                            switchTurns();
                             playerFirstChoice=11;
           } else if (mouseOverCardId==="card" + "Border" + 12){
                             setTimeout(()=>{
@@ -255,7 +271,7 @@ function turnFirstCard () {
                               document.getElementById(mouseOverCardId).style.width="120px";
                               document.getElementById(innerCard1).style.width="118px";
                               },300); 
-                              playerTurn=2;
+                              switchTurns();
                               playerFirstChoice=12;
 }}
 
@@ -268,7 +284,7 @@ function turnSecondCard () {
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard2).style.width="118px";
     },300);
-    playerTurn=1;
+    switchTurns();
     setTimeout(()=>{
       document.getElementById("cardBorder1").style.transition="opacity 3s";
       document.getElementById("cardBorder0").style.transition="opacity 3s";
@@ -283,7 +299,7 @@ function turnSecondCard () {
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard2).style.width="118px";
     },300); 
-    playerTurn=1;
+    switchTurns();
     setTimeout(()=>{
       document.getElementById("cardBorder2").style.transition="opacity 3s";
       document.getElementById("cardBorder3").style.transition="opacity 3s";
@@ -298,7 +314,7 @@ function turnSecondCard () {
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard2).style.width="118px";
     },300); 
-    playerTurn=1;
+    switchTurns();
     setTimeout(()=>{
       document.getElementById("cardBorder4").style.transition="opacity 3s";
       document.getElementById("cardBorder5").style.transition="opacity 3s";
@@ -313,7 +329,7 @@ function turnSecondCard () {
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(innerCard2).style.width="118px";
   },300); 
-  playerTurn=1;
+  switchTurns();
   setTimeout(()=>{
     document.getElementById("cardBorder6").style.transition="opacity 3s";
     document.getElementById("cardBorder7").style.transition="opacity 3s";
@@ -328,7 +344,7 @@ playerSecondChoice=50;
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(innerCard2).style.width="118px";
   },300); 
-  playerTurn=1;
+  switchTurns();
   setTimeout(()=>{
     document.getElementById("cardBorder8").style.transition="opacity 3s";
     document.getElementById("cardBorder9").style.transition="opacity 3s";
@@ -343,7 +359,7 @@ playerSecondChoice=50;
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(innerCard2).style.width="118px";
   },300); 
-  playerTurn=1;
+  switchTurns();
   setTimeout(()=>{
     document.getElementById("cardBorder10").style.transition="opacity 3s";
     document.getElementById("cardBorder11").style.transition="opacity 3s";
@@ -395,12 +411,33 @@ function flipBackCards() {
    },300);
    playerFirstChoice=50;
    playerSecondChoice=50;
-   playerTurn=1 
+   switchTurns(); 
   }}
 
 //    document.getElementById(innerCard).style.width="118px";
 //    document.getElementById(mouseOverCardId).style.width="120px";   
 
-// then I will need to match the ids to pictures
-
 // if they match then the player scores a point
+
+
+
+function switchTurns () {
+  console.log(playerTurn);
+  if (playerTurn===1) {
+    turnCounter.innerText="Player 1's turn";
+    playerTurn=2;
+    console.log(playerTurn);
+  } else if (playerTurn===2) {
+    turnCounter.innerText="Player 2's turn";
+    playerTurn=3;
+    console.log(playerTurn);
+  } else if (playerTurn===3) {
+    turnCounter.innerText="Player 2's turn";
+    playerTurn=4;
+    console.log(playerTurn);
+  } else {
+    turnCounter.innerText="Player 1's turn";
+    playerTurn=1;
+    console.log(playerTurn);
+  }
+}
