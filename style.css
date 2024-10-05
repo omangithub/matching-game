@@ -55,6 +55,7 @@
     flex-direction: row;
     justify-content: center;
     background-color: rgb(150, 150, 150);
+    font-size: xx-large;
 }
 
 .cardPicture {
@@ -66,5 +67,15 @@ h1 {
 }
 
 #turnText {
+    margin: 10px;
+    border: 10px;
     text-align: center;
+}
+
+#playerOneBox {
+    margin: auto;
+}
+
+#playerTwoBox {
+    margin: auto;
 }

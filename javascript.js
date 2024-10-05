@@ -29,12 +29,18 @@ let playerFirstChoice=50;
 let playerSecondChoice=50;
 let picId1="";
 let picId2="";
-const playerOneScore = 0;
-const playerTwoScore = 0;
-const turnUpdate = 1;
+let playerOneScore = 0;
+let playerTwoScore = 0;
+let oneTwoGone=0;
+let threeFourGone=0;
+let fiveSixGone=0;
+let sevenEightGone=0;
+let nineTenGone=0;
+let elevenTwelveGone=0;
 const playerOneScoreText = document.getElementById("playerOneScore");
 const playerTwoScoreText = document.getElementById("playerTwoScore");
 const turnCounter = document.getElementById("turnText");
+const gameBoard = document.getElementById("gameBox");
 
 function cardCreator () { 
   for (let i=0; i<numberOfCards; i++) {
@@ -57,7 +63,9 @@ function cardCreator () {
     elem.style.height="130px";
     elem.id="pic"+i;
     div.addEventListener("click", ()=>{
-      if (playerTurn===1 || playerTurn===3) {
+      if(playerTurn===5){
+        return;
+      } else if (playerTurn===1 || playerTurn===3) {
       mouseOverCardId=divBorder.id;
       innerCard1=div.id;
       picId1=elem.id;
@@ -135,7 +143,7 @@ function chooseCard () {
 } ;
 
 function turnFirstCard () {
-  if (mouseOverCardId==="card" + "Border" + 0 ) {
+  if (mouseOverCardId==="card" + "Border" + 0 && oneTwoGone===0) {
     setTimeout(()=>{
     // Places and image on the card
     document.getElementById(picId1).style.width="100%"; 
@@ -143,8 +151,9 @@ function turnFirstCard () {
     document.getElementById(innerCard1).style.width="118px";
     },300);
     switchTurns();
+    console.log("tunring first card")
     playerFirstChoice=0;
-    } else if (mouseOverCardId==="card" + "Border" + 1) {
+    } else if (mouseOverCardId==="card" + "Border" + 1 && oneTwoGone===0) {
       setTimeout(()=>{
         // Places and image on the card
         document.getElementById(picId1).style.width="100%"; 
@@ -153,7 +162,7 @@ function turnFirstCard () {
         },300); 
         switchTurns();
         playerFirstChoice=1;
-      } else if (mouseOverCardId==="card" + "Border" + 2){
+      } else if (mouseOverCardId==="card" + "Border" + 2 && threeFourGone===0){
         setTimeout(()=>{
           // Places and image on the card
 //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -163,7 +172,7 @@ function turnFirstCard () {
           },300); 
           switchTurns();
           playerFirstChoice=2;        
-      } else if (mouseOverCardId==="card" + "Border" + 3){
+      } else if (mouseOverCardId==="card" + "Border" + 3 && threeFourGone===0){
         setTimeout(()=>{
           // Places and image on the card
 //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -173,7 +182,7 @@ function turnFirstCard () {
           },300); 
           switchTurns();
           playerFirstChoice=3;
-      } else if (mouseOverCardId==="card" + "Border" + 4){
+      } else if (mouseOverCardId==="card" + "Border" + 4 && fiveSixGone===0){
             setTimeout(()=>{
               // Places and image on the card
     //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -183,7 +192,7 @@ function turnFirstCard () {
               },300); 
               switchTurns();
               playerFirstChoice=4;
-      } else if (mouseOverCardId==="card" + "Border" + 4){
+      } else if (mouseOverCardId==="card" + "Border" + 5 && fiveSixGone===0){
               setTimeout(()=>{
                 // Places and image on the card
     //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -193,7 +202,7 @@ function turnFirstCard () {
                 },300); 
                 switchTurns();
                 playerFirstChoice=5;
-      } else if (mouseOverCardId==="card" + "Border" + 5){
+      } else if (mouseOverCardId==="card" + "Border" + 6 && sevenEightGone===0){
               setTimeout(()=>{
                 // Places and image on the card
       //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -202,8 +211,8 @@ function turnFirstCard () {
                 document.getElementById(innerCard1).style.width="118px";
                 },300); 
                 switchTurns();
-                playerFirstChoice=5;
-      } else if (mouseOverCardId==="card" + "Border" + 6){
+                playerFirstChoice=6;
+      } else if (mouseOverCardId==="card" + "Border" + 7 && sevenEightGone===0){
                 setTimeout(()=>{
                   // Places and image on the card
         //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -212,8 +221,8 @@ function turnFirstCard () {
                   document.getElementById(innerCard1).style.width="118px";
                   },300); 
                   switchTurns();
-                  playerFirstChoice=6;
-      } else if (mouseOverCardId==="card" + "Border" + 7){
+                  playerFirstChoice=7;
+      } else if (mouseOverCardId==="card" + "Border" + 8 && nineTenGone===0){
                   setTimeout(()=>{
                     // Places and image on the card
           //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -222,8 +231,8 @@ function turnFirstCard () {
                     document.getElementById(innerCard1).style.width="118px";
                     },300); 
                     switchTurns();
-                    playerFirstChoice=7;
-        } else if (mouseOverCardId==="card" + "Border" + 8){
+                    playerFirstChoice=8;
+        } else if (mouseOverCardId==="card" + "Border" + 9 && nineTenGone===0){
                     setTimeout(()=>{
                       // Places and image on the card
             //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -232,8 +241,8 @@ function turnFirstCard () {
                       document.getElementById(innerCard1).style.width="118px";
                       },300); 
                       switchTurns();
-                      playerFirstChoice=8;
-          } else if (mouseOverCardId==="card" + "Border" + 9){
+                      playerFirstChoice=9;
+          } else if (mouseOverCardId==="card" + "Border" + 10 && elevenTwelveGone===0){
                       setTimeout(()=>{
                         // Places and image on the card
               //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -242,8 +251,8 @@ function turnFirstCard () {
                         document.getElementById(innerCard1).style.width="118px";
                         },300); 
                         switchTurns();
-                        playerFirstChoice=9;
-          } else if (mouseOverCardId==="card" + "Border" + 10){
+                        playerFirstChoice=10;
+          } else if (mouseOverCardId==="card" + "Border" + 11 && elevenTwelveGone===0){
                         setTimeout(()=>{
                           // Places and image on the card
                 //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -252,8 +261,8 @@ function turnFirstCard () {
                           document.getElementById(innerCard1).style.width="118px";
                           },300); 
                           switchTurns();
-                          playerFirstChoice=10;
-          } else if (mouseOverCardId==="card" + "Border" + 11){
+                          playerFirstChoice=11;
+/*          } else if (mouseOverCardId==="card" + "Border" + 12 && !elevenTwelveGone===1){
                           setTimeout(()=>{
                             // Places and image on the card
                   //          elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
@@ -272,18 +281,20 @@ function turnFirstCard () {
                               document.getElementById(innerCard1).style.width="118px";
                               },300); 
                               switchTurns();
-                              playerFirstChoice=12;
+                              playerFirstChoice=12; */
 }}
 
 function turnSecondCard () {
-  console.log(playerFirstChoice);
-  console.log(mouseOverCardId);
-  if (mouseOverCardId==="card"+ "Border" + 0 && playerFirstChoice===1 || mouseOverCardId==="card"+ "Border" + 0 && playerFirstChoice===1) {
+  if (mouseOverCardId==="card"+ "Border" + 0 && playerFirstChoice===1 || mouseOverCardId==="card"+ "Border" + 1 && playerFirstChoice===0) {
     setTimeout(()=>{
     document.getElementById(picId2).style.width="100%";
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard2).style.width="118px";
     },300);
+    incrementScores();
+    if(playerTurn===5){
+      return;
+    }
     switchTurns();
     setTimeout(()=>{
       document.getElementById("cardBorder1").style.transition="opacity 3s";
@@ -291,6 +302,7 @@ function turnSecondCard () {
       document.getElementById("cardBorder1").style.opacity="0";
       document.getElementById("cardBorder0").style.opacity="0";
     },200);
+    oneTwoGone=1;
     playerFirstChoice=50;
     playerSecondChoice=50;
   } else if(mouseOverCardId==="card"+ "Border" + 2 && playerFirstChoice===3 || mouseOverCardId==="card"+ "Border" + 3 && playerFirstChoice===2) {
@@ -299,13 +311,18 @@ function turnSecondCard () {
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard2).style.width="118px";
     },300); 
+    incrementScores();
+    if(playerTurn===5){
+      return;
+    }
     switchTurns();
     setTimeout(()=>{
       document.getElementById("cardBorder2").style.transition="opacity 3s";
       document.getElementById("cardBorder3").style.transition="opacity 3s";
       document.getElementById("cardBorder2").style.opacity="0";
       document.getElementById("cardBorder3").style.opacity="0";
-  },200);     
+  },200); 
+  threeFourGone=1;    
   playerFirstChoice=50;
   playerSecondChoice=50;
   } else if (mouseOverCardId==="card"+"Border" + 4 && playerFirstChoice===5 || mouseOverCardId==="card"+ "Border" + 5 && playerFirstChoice===4) {
@@ -314,6 +331,10 @@ function turnSecondCard () {
     document.getElementById(mouseOverCardId).style.width="120px";
     document.getElementById(innerCard2).style.width="118px";
     },300); 
+    incrementScores();
+    if(playerTurn===5){
+      return;
+    }
     switchTurns();
     setTimeout(()=>{
       document.getElementById("cardBorder4").style.transition="opacity 3s";
@@ -321,6 +342,7 @@ function turnSecondCard () {
       document.getElementById("cardBorder4").style.opacity="0";
       document.getElementById("cardBorder5").style.opacity="0";
   },200);  
+  fiveSixGone=1;
   playerFirstChoice=50;
   playerSecondChoice=50;
 } else if (mouseOverCardId==="card"+"Border" + 6 && playerFirstChoice===7 || mouseOverCardId==="card"+ "Border" + 7 && playerFirstChoice===6) {
@@ -329,6 +351,10 @@ function turnSecondCard () {
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(innerCard2).style.width="118px";
   },300); 
+  incrementScores();
+  if(playerTurn===5){
+    return;
+  }
   switchTurns();
   setTimeout(()=>{
     document.getElementById("cardBorder6").style.transition="opacity 3s";
@@ -336,6 +362,7 @@ function turnSecondCard () {
     document.getElementById("cardBorder6").style.opacity="0";
     document.getElementById("cardBorder7").style.opacity="0";
 },200);  
+sevenEightGone=1;
 playerFirstChoice=50;
 playerSecondChoice=50;
 } else if (mouseOverCardId==="card"+"Border" + 8 && playerFirstChoice===9 || mouseOverCardId==="card"+ "Border" + 9 && playerFirstChoice===8) {
@@ -344,6 +371,10 @@ playerSecondChoice=50;
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(innerCard2).style.width="118px";
   },300); 
+  incrementScores();
+  if(playerTurn===5){
+    return;
+  }
   switchTurns();
   setTimeout(()=>{
     document.getElementById("cardBorder8").style.transition="opacity 3s";
@@ -351,6 +382,7 @@ playerSecondChoice=50;
     document.getElementById("cardBorder8").style.opacity="0";
     document.getElementById("cardBorder9").style.opacity="0";
 },200);  
+nineTenGone=1;
 playerFirstChoice=50;
 playerSecondChoice=50;
 } else if (mouseOverCardId==="card"+"Border" + 10 && playerFirstChoice===11 || mouseOverCardId==="card"+ "Border" + 11 && playerFirstChoice===10) {
@@ -359,6 +391,10 @@ playerSecondChoice=50;
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(innerCard2).style.width="118px";
   },300); 
+  incrementScores();
+  if(playerTurn===5){
+    return;
+  }
   switchTurns();
   setTimeout(()=>{
     document.getElementById("cardBorder10").style.transition="opacity 3s";
@@ -366,6 +402,7 @@ playerSecondChoice=50;
     document.getElementById("cardBorder10").style.opacity="0";
     document.getElementById("cardBorder11").style.opacity="0";
 },200);  
+elevenTwelveGone=1;
 playerFirstChoice=50;
 playerSecondChoice=50;
   } else {
@@ -390,7 +427,6 @@ function flipBackCards() {
 
   setTimeout(()=>{
     document.getElementById(picId1).style.width="0%";
-    console.log(document.querySelector(".cardPicture").style.width);
     document.getElementById(picId2).style.width="0%";
   document.getElementById(mouseOverCardId).style.width="120px";
   document.getElementById(mouseOverCardId).style.height="140px";
@@ -422,22 +458,54 @@ function flipBackCards() {
 
 
 function switchTurns () {
-  console.log(playerTurn);
+  if(playerOneScore+playerTwoScore!==6) {
   if (playerTurn===1) {
     turnCounter.innerText="Player 1's turn";
     playerTurn=2;
-    console.log(playerTurn);
   } else if (playerTurn===2) {
     turnCounter.innerText="Player 2's turn";
     playerTurn=3;
-    console.log(playerTurn);
   } else if (playerTurn===3) {
     turnCounter.innerText="Player 2's turn";
     playerTurn=4;
-    console.log(playerTurn);
   } else {
     turnCounter.innerText="Player 1's turn";
     playerTurn=1;
-    console.log(playerTurn);
   }
+}}
+
+function incrementScores () {
+  if (playerOneScore+playerTwoScore===5) {
+    if (playerOneScore+playerTwoScore===5) {
+      if (playerTurn===2) {
+        playerOneScore++;
+        playerOneScoreText.innerText="Score: " + playerOneScore;    
+      } else if (playerTurn===4){
+        playerTwoScore++;
+        playerTwoScoreText.innerText="Score: " + playerTwoScore;
+      }
+    endgame();
+  }}
+  if (playerTurn===2  && playerOneScore+playerTwoScore<5) {
+    playerOneScore++;
+    playerOneScoreText.innerText="Score: " + playerOneScore;    
+  } else if (playerTurn===4 && playerOneScore+playerTwoScore<5){
+    playerTwoScore++;
+    playerTwoScoreText.innerText="Score: " + playerTwoScore;
+  }
+}
+
+function endgame () {
+  setTimeout(()=>{
+  if (playerOneScore>playerTwoScore) {
+    turnCounter.innerText="Game Over";
+    gameBoard.innerText="Player One Wins!";
+  } else if (playerTwoScore>playerOneScore) {
+    turnCounter.innerText="Game Over";
+    gameBoard.innerText="Player Two Wins!";
+  } else {
+    turnCounter.innerText="Game Over";
+    gameBoard.innerText="It's a Draw!";
+  }},1000)
+  playerTurn=5;
 }
