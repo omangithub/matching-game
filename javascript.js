@@ -498,15 +498,48 @@ function incrementScores () {
 function endgame () {
   setTimeout(()=>{  
     if (playerOneScore>playerTwoScore) {
-    turnCounter.innerText="Game Over";
-    gameBoard.innerText="Player One Wins!";
+    turnCounter.innerText="Player One Wins!";
   } else if (playerTwoScore>playerOneScore) {
-    turnCounter.innerText="Game Over";
-    gameBoard.innerText="Player Two Wins!";
+    turnCounter.innerText="Player Two Wins!";
   } else {
-    turnCounter.innerText="Game Over";
-    gameBoard.innerText="It's a Draw!";
+    turnCounter.innerText="It's a Draw!";
   }
-  playerTurn=5;  
+  playerTurn=5;
 },1000)
+}
+
+const resetButtonVar = document.getElementById("resetButton");
+resetButtonVar.addEventListener("click", ()=>{
+  resetGame();
+})
+
+function resetGame () {
+  for (let i=0;i<12;i++) {
+    let elem = "gridSpace" + i;
+    document.getElementById(elem).remove();
+}
+turnCounter.innerText="Player 1's turn";
+gameBoard.innerText="";
+playerOneScoreText.innerText="Score: 0";
+playerTwoScoreText.innerText="Score: 0";  
+numberOfCards=12;
+mouseOverCardId="";
+innerCard1="";
+innerCard2="";
+playerTurn=1;
+playerFirstChoice=50;
+playerSecondChoice=50;
+picId1="";
+picId2="";
+playerOneScore = 0;
+playerTwoScore = 0;
+oneTwoGone=0;
+threeFourGone=0;
+fiveSixGone=0;
+sevenEightGone=0;
+nineTenGone=0;
+elevenTwelveGone=0;
+gridCreator();
+cardCreator();
+
 }

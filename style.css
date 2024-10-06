@@ -9,6 +9,13 @@
     background-color: rgb(150, 150, 150);
 }
 
+#topMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 #game {
     display: flex;
     align-items: center;
@@ -31,7 +38,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition:10ms linear;
+    transition:50ms linear;
 }
 
 .cardBlackBorder {
