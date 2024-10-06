@@ -297,8 +297,8 @@ function turnSecondCard () {
     }
     switchTurns();
     setTimeout(()=>{
-      document.getElementById("cardBorder1").style.transition="opacity 3s";
-      document.getElementById("cardBorder0").style.transition="opacity 3s";
+      document.getElementById("cardBorder1").style.transition="opacity 1.5s";
+      document.getElementById("cardBorder0").style.transition="opacity 1.5s";
       document.getElementById("cardBorder1").style.opacity="0";
       document.getElementById("cardBorder0").style.opacity="0";
     },200);
@@ -317,8 +317,8 @@ function turnSecondCard () {
     }
     switchTurns();
     setTimeout(()=>{
-      document.getElementById("cardBorder2").style.transition="opacity 3s";
-      document.getElementById("cardBorder3").style.transition="opacity 3s";
+      document.getElementById("cardBorder2").style.transition="opacity 1.5s";
+      document.getElementById("cardBorder3").style.transition="opacity 1.5s";
       document.getElementById("cardBorder2").style.opacity="0";
       document.getElementById("cardBorder3").style.opacity="0";
   },200); 
@@ -337,8 +337,8 @@ function turnSecondCard () {
     }
     switchTurns();
     setTimeout(()=>{
-      document.getElementById("cardBorder4").style.transition="opacity 3s";
-      document.getElementById("cardBorder5").style.transition="opacity 3s";
+      document.getElementById("cardBorder4").style.transition="opacity 1.5s";
+      document.getElementById("cardBorder5").style.transition="opacity 1.5s";
       document.getElementById("cardBorder4").style.opacity="0";
       document.getElementById("cardBorder5").style.opacity="0";
   },200);  
@@ -357,8 +357,8 @@ function turnSecondCard () {
   }
   switchTurns();
   setTimeout(()=>{
-    document.getElementById("cardBorder6").style.transition="opacity 3s";
-    document.getElementById("cardBorder7").style.transition="opacity 3s";
+    document.getElementById("cardBorder6").style.transition="opacity 1.5s";
+    document.getElementById("cardBorder7").style.transition="opacity 1.5s";
     document.getElementById("cardBorder6").style.opacity="0";
     document.getElementById("cardBorder7").style.opacity="0";
 },200);  
@@ -377,8 +377,8 @@ playerSecondChoice=50;
   }
   switchTurns();
   setTimeout(()=>{
-    document.getElementById("cardBorder8").style.transition="opacity 3s";
-    document.getElementById("cardBorder9").style.transition="opacity 3s";
+    document.getElementById("cardBorder8").style.transition="opacity 1.5s";
+    document.getElementById("cardBorder9").style.transition="opacity 1.5s";
     document.getElementById("cardBorder8").style.opacity="0";
     document.getElementById("cardBorder9").style.opacity="0";
 },200);  
@@ -397,8 +397,8 @@ playerSecondChoice=50;
   }
   switchTurns();
   setTimeout(()=>{
-    document.getElementById("cardBorder10").style.transition="opacity 3s";
-    document.getElementById("cardBorder11").style.transition="opacity 3s";
+    document.getElementById("cardBorder10").style.transition="opacity 1.5s";
+    document.getElementById("cardBorder11").style.transition="opacity 1.5s";
     document.getElementById("cardBorder10").style.opacity="0";
     document.getElementById("cardBorder11").style.opacity="0";
 },200);  
@@ -483,9 +483,9 @@ function incrementScores () {
       } else if (playerTurn===4){
         playerTwoScore++;
         playerTwoScoreText.innerText="Score: " + playerTwoScore;
-      }
+      }}
     endgame();
-  }}
+  }
   if (playerTurn===2  && playerOneScore+playerTwoScore<5) {
     playerOneScore++;
     playerOneScoreText.innerText="Score: " + playerOneScore;    
@@ -496,8 +496,8 @@ function incrementScores () {
 }
 
 function endgame () {
-  setTimeout(()=>{
-  if (playerOneScore>playerTwoScore) {
+  setTimeout(()=>{  
+    if (playerOneScore>playerTwoScore) {
     turnCounter.innerText="Game Over";
     gameBoard.innerText="Player One Wins!";
   } else if (playerTwoScore>playerOneScore) {
@@ -506,6 +506,7 @@ function endgame () {
   } else {
     turnCounter.innerText="Game Over";
     gameBoard.innerText="It's a Draw!";
-  }},1000)
-  playerTurn=5;
+  }
+  playerTurn=5;  
+},1000)
 }

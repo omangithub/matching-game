@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition:50ms linear;
+    transition:10ms linear;
 }
 
 .cardBlackBorder {
