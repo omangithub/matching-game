@@ -57,7 +57,13 @@ function cardCreator () {
     div.style.color="black";
     div.id="card" + i;
     let elem = document.createElement("img")
-    elem.src = 'https://esl-classroom-games.com/?brizy_media=wp-3f36dcb54d4c3171bedb6a49913fc691.jpg&brizy_crop=iW%3D1170%26iH%3D1476%26oX%3D0%26oY%3D0%26cW%3D1170%26cH%3D1476';
+    if (div.id==="card"+1 || div.id==="card"+2){
+    elem.src = 'images/dragon.jpg';
+  }else if(div.id==="card"+3 || div.id==="card"+4){
+  elem.src = 'images/tree.jpg';
+} else {
+  elem.src = 'images/planet.jpg';
+}
     elem.classList.add("cardPicture");
     elem.style.width="0%";
     elem.style.height="130px";
