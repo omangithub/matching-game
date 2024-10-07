@@ -57,10 +57,16 @@ function cardCreator () {
     div.style.color="black";
     div.id="card" + i;
     let elem = document.createElement("img")
-    if (div.id==="card"+1 || div.id==="card"+2){
+    if (div.id==="card"+0 || div.id==="card"+1){
     elem.src = 'images/dragon.jpg';
-  }else if(div.id==="card"+3 || div.id==="card"+4){
+  }else if(div.id==="card"+2 || div.id==="card"+3){
   elem.src = 'images/tree.jpg';
+  }else if(div.id==="card"+4 || div.id==="card"+5){
+  elem.src = 'images/ashley.jpg';
+}else if(div.id==="card"+6 || div.id==="card"+7){
+  elem.src = 'images/kieran.jpg';
+}else if(div.id==="card"+8 || div.id==="card"+9){
+  elem.src = 'images/cat.jpg';
 } else {
   elem.src = 'images/planet.jpg';
 }
@@ -157,7 +163,6 @@ function turnFirstCard () {
     document.getElementById(innerCard1).style.width="118px";
     },300);
     switchTurns();
-    console.log("tunring first card")
     playerFirstChoice=0;
     } else if (mouseOverCardId==="card" + "Border" + 1 && oneTwoGone===0) {
       setTimeout(()=>{
